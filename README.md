@@ -6,6 +6,10 @@ A business intelligence dashboard for small service businesses — salons, spas,
 
 Built with Python, Streamlit, and probabilistic ML models (BG/NBD, Gamma-Gamma).
 
+## Live Demo
+
+Try it live at [bizpulseapp.streamlit.app](https://bizpulseapp.streamlit.app). Click **"Try with sample data"** to explore the full dashboard instantly — no upload required.
+
 ---
 
 ## The Problem
