@@ -6,3 +6,8 @@ data/uploads/*
 .streamlit/secrets.toml
 venv/
 .env
+
+# Sensitive / internal files — do not publish
+appointments_with_details.csv
+project_report.pdf
+docs/
