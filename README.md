@@ -8,7 +8,10 @@ Built with Python, Streamlit, and probabilistic ML models (BG/NBD, Gamma-Gamma).
 
 ## Live Demo
 
-Try it live at [bizpulseapp.streamlit.app](https://bizpulseapp.streamlit.app). Use the direct demo link [bizpulseapp.streamlit.app/?demo=true](https://bizpulseapp.streamlit.app/?demo=true) to skip login and jump straight to the dashboard with sample data — no account or upload required.
+Try it live at [bizpulseapp.streamlit.app](https://bizpulseapp.streamlit.app). There is an option to skip account or log-in.
+
+
+Alternatively, use the direct demo link [bizpulseapp.streamlit.app/?demo=true](https://bizpulseapp.streamlit.app/?demo=true) to skip login and jump straight to the dashboard with sample data — no account or upload required.
 
 ---
 

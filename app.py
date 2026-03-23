@@ -782,9 +782,31 @@ def render_login():
         </div>
         """, unsafe_allow_html=True)
 
-        # Demo button — skip login and load sample data
-        st.markdown("<div style='height: 1rem;'></div>", unsafe_allow_html=True)
-        if st.button("Try with sample data →", type="secondary", use_container_width=True):
+        # Divider with "or" label
+        st.markdown(f"""
+        <div style="display: flex; align-items: center; gap: 1rem; margin: 1.5rem 0;">
+            <div style="flex: 1; height: 1px; background: {COLORS['border']};"></div>
+            <span style="font-family: {FONTS['body']}; font-size: 0.75rem; font-weight: 500;
+                         color: {COLORS['text_muted']}; letter-spacing: 0.08em; text-transform: uppercase;">or</span>
+            <div style="flex: 1; height: 1px; background: {COLORS['border']};"></div>
+        </div>
+        """, unsafe_allow_html=True)
+
+        # Demo card
+        st.markdown(f"""
+        <div style="border: 1.5px solid {COLORS['border']}; padding: 1.5rem 1.75rem;
+                    background: {COLORS['bg_white']};">
+            <div style="font-family: {FONTS['display']}; font-size: 1.1rem; font-weight: 600;
+                        color: {COLORS['text_primary']}; margin-bottom: 0.5rem;">Just browsing?</div>
+            <p style="font-family: {FONTS['body']}; font-size: 0.875rem; color: {COLORS['text_muted']};
+                      line-height: 1.55; margin: 0 0 1.25rem 0;">
+                Skip login and explore a live dashboard with anonymized data from a real nail salon —
+                segmentation, churn alerts, lifetime value, and more.
+            </p>
+        </div>
+        """, unsafe_allow_html=True)
+
+        if st.button("Explore Demo Dashboard →", use_container_width=True):
             st.query_params["demo"] = "true"
             st.rerun()
 
