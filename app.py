@@ -646,6 +646,22 @@ def init_session_state():
 
 init_session_state()
 
+# Handle ?demo=true URL parameter — auto-load demo and skip login
+if st.query_params.get("demo") == "true" and not st.session_state.data_loaded:
+    try:
+        demo_df = load_and_process_csv("sample_data/appointments_sample.csv")
+        demo_customers = aggregate_to_customers(demo_df)
+        demo_customers = assign_segments(demo_customers)
+        st.session_state.email = "demo@bizpulse.app"
+        st.session_state.business_name = "Luxe Nail Studio (Demo)"
+        st.session_state.logged_in = True
+        st.session_state.raw_data = demo_df
+        st.session_state.customer_data = demo_customers
+        st.session_state.data_loaded = True
+        st.session_state.current_view = "dashboard"
+    except Exception as e:
+        st.error(f"Could not load demo data: {str(e)}")
+
 
 # =============================================================================
 # HELPER FUNCTIONS
@@ -769,20 +785,8 @@ def render_login():
         # Demo button — skip login and load sample data
         st.markdown("<div style='height: 1rem;'></div>", unsafe_allow_html=True)
         if st.button("Try with sample data →", type="secondary", use_container_width=True):
-            try:
-                demo_df = load_and_process_csv("sample_data/appointments_sample.csv")
-                demo_customers = aggregate_to_customers(demo_df)
-                demo_customers = assign_segments(demo_customers)
-                st.session_state.email = "demo@bizpulse.app"
-                st.session_state.business_name = "Luxe Nail Studio (Demo)"
-                st.session_state.logged_in = True
-                st.session_state.raw_data = demo_df
-                st.session_state.customer_data = demo_customers
-                st.session_state.data_loaded = True
-                st.session_state.current_view = "dashboard"
-                st.rerun()
-            except Exception as e:
-                st.error(f"Could not load demo data: {str(e)}")
+            st.query_params["demo"] = "true"
+            st.rerun()
 
 
 # =============================================================================
